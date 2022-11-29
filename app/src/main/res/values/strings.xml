@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">frag</string>
+    <string name="change_screen">change screen</string>
+    <string name="remove_screen">remove screen</string>
+    <string name="hello_frag_two">hello frag two</string>
+    <string name="hello_frag_one">hello frag one</string>
 </resources>
