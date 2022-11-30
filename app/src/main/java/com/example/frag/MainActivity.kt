@@ -2,30 +2,47 @@ package com.example.frag
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.renderscript.ScriptGroup.Binding
+
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.replace
 import kotlinx.android.synthetic.main.main_activity.*
+
 
 class MainActivity : AppCompatActivity() {
 
     private val firstFragment = FragmentOne()
     private val secondFragment = FragmentTwo()
+    private val thirdFragment = FragmentThird()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         initSubView()
-        initButton()
+        //initButton()
+        addNavListener()
     }
 
-    private fun initButton(){
-      button.setOnClickListener {
-          showSecondFrag()
-      }
-        button_two.setOnClickListener {
-            removeFrag(secondFragment)
+    private fun addNavListener(){
+        button_nav.setOnItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.pageHome ->{
+                    replaceFrag(firstFragment)
+                    true
+                }
+            R.id.pageFavorite ->{
+                replaceFrag(secondFragment)
+                true
+            }
+                R.id.pageSettings ->{
+                    replaceFrag(thirdFragment)
+                    true
+                }
+
+                else -> false
+            }
+
         }
+
     }
 
     private fun showSecondFrag(){

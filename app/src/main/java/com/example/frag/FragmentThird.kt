@@ -3,30 +3,31 @@ package com.example.frag
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import android.view.View as View1
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 
-class FragmentOne : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View1? {
-        Log.d(FragmentOne.LOG_TAG, "onCreateView")
 
-        return inflater.inflate(R.layout.fragment_one,container,false)
-    }
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.d(LOG_TAG, "onAttach")
-    }
+class FragmentThird : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(LOG_TAG, "onCreate")
+        Log.d(FragmentTwo.LOG_TAG, "onCreate")
+    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d(FragmentTwo.LOG_TAG, "onAttach")
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_third, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -71,6 +72,6 @@ class FragmentOne : Fragment() {
 
 
     companion object {
-        const val LOG_TAG = "FFF_One"
+        const val LOG_TAG = "FFF_Three"
     }
 }
